@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: idempotent-payment-core
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment_core
+    username: ledger_admin
+    password: securepassword
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # We use Flyway for schema changes, NOT Hibernate!
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  redis:
+    host: localhost
+    port: 6379
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
